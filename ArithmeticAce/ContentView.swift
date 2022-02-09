@@ -85,6 +85,7 @@ struct ContentView: View {
             })
                 .padding()
                 .buttonStyle(.bordered)
+                .opacity(answerChecked ? 0.0 : 1.0)
             
             Button(action: {
                 multiplicand = Int.random(in: 1...12)
