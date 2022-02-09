@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK: Stored properties
-    let multiplicand = Int.random(in: 1...12)
-    let multiplier = Int.random(in: 1...12)
+    @State var multiplicand = Int.random(in: 1...12)
+    @State var multiplier = Int.random(in: 1...12)
     @State var inputGiven = ""
     
     // Has an answer been checked?
@@ -43,10 +43,16 @@ struct ContentView: View {
             Divider()
             
             HStack {
-                Image(systemName: "checkmark.circle")
-                    .foregroundColor(.green)
-                    //        CONDITION      true  false
-                    .opacity(answerCorrect ? 1.0 : 0.0)
+                ZStack {
+                    Image(systemName: "checkmark.circle")
+                        .foregroundColor(.green)
+                        //        CONDITION      true  false
+                        .opacity(answerCorrect ? 1.0 : 0.0)
+                    
+                    Image(systemName: "xmark.circle")
+                        .foregroundColor(.red)
+                        .opacity(answerCorrect == false && answerChecked == true ? 1.0 : 0.0)
+                }
                 Spacer()
                 TextField("",
                           text: $inputGiven)
@@ -80,12 +86,22 @@ struct ContentView: View {
                 .padding()
                 .buttonStyle(.bordered)
             
+            Button(action: {
+                multiplicand = Int.random(in: 1...12)
+                multiplier = Int.random(in: 1...12)
+                inputGiven = ""
+                answerChecked = false
+                answerCorrect = false
+            }, label: {
+                Text("New Question")
+                    .font(.largeTitle)
+            })
+                .padding()
+                .buttonStyle(.bordered)
             Spacer()
         }
         .padding(.horizontal)
         .font(.system(size: 72))
-
-        
     }
 }
 
