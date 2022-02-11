@@ -20,8 +20,8 @@ struct DivisionView: View {
     @State var answerCorrect = false
     
     // MARK: Computed properties
-    // What is the correct product?
-    var correctProduct: Int {
+    // What is the correct quotient?
+    var correctQuotient: Int {
         return dividend / divisor
     }
     
@@ -65,14 +65,14 @@ struct DivisionView: View {
                     answerChecked = true
                     
                     // Convert the input given to an integer, if possible
-                    guard let productGiven = Int(inputGiven) else {
+                    guard let quotientGiven = Int(inputGiven) else {
                         // Sadness, not a number
                         answerCorrect = false
                         return
                     }
 
                     // Check the answer!
-                    if productGiven == correctProduct {
+                    if quotientGiven == correctQuotient {
                         // Celebrate! 👍🏼
                         answerCorrect = true
                     } else {

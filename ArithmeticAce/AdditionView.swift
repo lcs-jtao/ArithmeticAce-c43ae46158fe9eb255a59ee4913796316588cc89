@@ -20,8 +20,8 @@ struct AdditionView: View {
     @State var answerCorrect = false
     
     // MARK: Computed properties
-    // What is the correct product?
-    var correctProduct: Int {
+    // What is the correct sum?
+    var correctSum: Int {
         return augend + addend
     }
     
@@ -65,14 +65,14 @@ struct AdditionView: View {
                     answerChecked = true
                     
                     // Convert the input given to an integer, if possible
-                    guard let productGiven = Int(inputGiven) else {
+                    guard let sumGiven = Int(inputGiven) else {
                         // Sadness, not a number
                         answerCorrect = false
                         return
                     }
 
                     // Check the answer!
-                    if productGiven == correctProduct {
+                    if sumGiven == correctSum {
                         // Celebrate! 👍🏼
                         answerCorrect = true
                     } else {
