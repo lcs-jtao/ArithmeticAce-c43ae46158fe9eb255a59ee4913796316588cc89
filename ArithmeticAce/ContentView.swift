@@ -76,7 +76,7 @@ struct ContentView: View {
                     // Celebrate! 👍🏼
                     answerCorrect = true
                 } else {
-                    // Sadness, they gave a number, but it's correct 😭
+                    // Sadness, they gave a number, but it's not correct 😭
                     answerCorrect = false
                 }
             }, label: {
@@ -88,11 +88,18 @@ struct ContentView: View {
                 .opacity(answerChecked ? 0.0 : 1.0)
             
             Button(action: {
+                
+                // Generate new numbers
                 multiplicand = Int.random(in: 1...12)
                 multiplier = Int.random(in: 1...12)
-                inputGiven = ""
+                
+                // Reset properties that we are using to keep track of whether a question has been answered and whether the answer is correct
                 answerChecked = false
                 answerCorrect = false
+                
+                // Reset the field where the user gives an answer
+                inputGiven = ""
+                
             }, label: {
                 Text("New Question")
                     .font(.largeTitle)
