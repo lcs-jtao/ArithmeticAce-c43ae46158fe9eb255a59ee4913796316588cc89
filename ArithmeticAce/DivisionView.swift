@@ -9,8 +9,8 @@ import SwiftUI
 
 struct DivisionView: View {
     // MARK: Stored properties
-    @State var dividend = Int.random(in: 1...12)
     @State var divisor = Int.random(in: 1...12)
+    @State var correctQuotient = Int.random(in: 1...12)
     @State var inputGiven = ""
     
     // Has an answer been checked?
@@ -20,9 +20,9 @@ struct DivisionView: View {
     @State var answerCorrect = false
     
     // MARK: Computed properties
-    // What is the correct quotient?
-    var correctQuotient: Int {
-        return dividend / divisor
+    // What is the dividend?
+    var dividend: Int {
+        return correctQuotient * divisor
     }
     
     var body: some View {
@@ -90,7 +90,7 @@ struct DivisionView: View {
                 Button(action: {
                     
                     // Generate new numbers
-                    dividend = Int.random(in: 1...12)
+                    correctQuotient = Int.random(in: 1...12)
                     divisor = Int.random(in: 1...12)
                     
                     // Reset properties that we are using to keep track of whether a question has been answered and whether the answer is correct

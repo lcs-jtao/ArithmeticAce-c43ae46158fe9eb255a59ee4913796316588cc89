@@ -67,11 +67,11 @@
 			children = (
 				81FDA62B27B160FF002471AE /* ArithmeticAceApp.swift */,
 				6C0FA9AC27B6FAF800378D2C /* AdditionView.swift */,
-				6C0FA9B527B805AB00378D2C /* 9891-happy-donut.json */,
-				6C9A2DA127B8090300C16B3B /* 84655-swinging-sad-emoji.json */,
 				6C0FA9B027B6FE1700378D2C /* SubtractionView.swift */,
 				81FDA62D27B160FF002471AE /* MultiplicationView.swift */,
 				6C0FA9AE27B6FD0100378D2C /* DivisionView.swift */,
+				6C0FA9B527B805AB00378D2C /* 9891-happy-donut.json */,
+				6C9A2DA127B8090300C16B3B /* 84655-swinging-sad-emoji.json */,
 				81FDA62F27B16100002471AE /* Assets.xcassets */,
 				81FDA63127B16100002471AE /* Preview Content */,
 				6C0FA9B927B8070500378D2C /* LottieView.swift */,
