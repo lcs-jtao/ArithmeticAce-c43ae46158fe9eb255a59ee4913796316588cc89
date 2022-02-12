@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AdditionView: View {
     // MARK: Stored properties
-    @State var augend = Int.random(in: 1...12)
-    @State var addend = Int.random(in: 1...12)
+    @State var augend = Int.random(in: 1...144)
+    @State var addend = 0
     @State var inputGiven = ""
     
     // Has an answer been checked?
@@ -90,8 +90,8 @@ struct AdditionView: View {
                 Button(action: {
                     
                     // Generate new numbers
-                    augend = Int.random(in: 1...12)
-                    addend = Int.random(in: 1...12)
+                    augend = Int.random(in: 1...144)
+                    addend = Int.random(in: 1...144-augend)
                     
                     // Reset properties that we are using to keep track of whether a question has been answered and whether the answer is correct
                     answerChecked = false
@@ -127,6 +127,10 @@ struct AdditionView: View {
         }
         .padding(.horizontal)
         .font(.system(size: 72))
+        
+        .task {
+            addend = Int.random(in: 1...144-augend)
+        }
     }
 }
 
