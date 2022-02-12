@@ -108,7 +108,21 @@ struct AdditionView: View {
                     .buttonStyle(.bordered)
                     .opacity(answerChecked ? 1.0 : 0.0)
             }
-
+            
+            ZStack {
+                
+                // Show the reaction animation - correct answer
+                LottieView(animationNamed: "9891-happy-donut")
+                    // Only show the animation when the answer given is correct
+                    .opacity(answerCorrect ? 1.0 : 0.0)
+                
+                // Show the reaction animation - incorrect answer
+                LottieView(animationNamed: "84655-swinging-sad-emoji")
+                    // Only show the animation when the answer given is incorrect
+                    .opacity(answerCorrect == false && answerChecked == true ? 1.0 : 0.0)
+                
+            }
+            
             Spacer()
         }
         .padding(.horizontal)
