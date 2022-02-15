@@ -86,6 +86,8 @@ struct SubtractionView: View {
                     .buttonStyle(.bordered)
                     .opacity(answerChecked ? 1.0 : 0.0)
             }
+            
+            ReactionAnimationView(happyReactionName: "9891-happy-donut", sadReactionName: "84655-swinging-sad-emoji", answerCorrect: answerCorrect, answerChecked: answerChecked)
 
             Spacer()
         }
