@@ -33,22 +33,7 @@ struct MultiplicationView: View {
             
             Divider()
             
-            HStack {
-                ZStack {
-                    Image(systemName: "checkmark.circle")
-                        .foregroundColor(.green)
-                        //        CONDITION      true  false
-                        .opacity(answerCorrect ? 1.0 : 0.0)
-                    
-                    Image(systemName: "xmark.circle")
-                        .foregroundColor(.red)
-                        .opacity(answerCorrect == false && answerChecked == true ? 1.0 : 0.0)
-                }
-                Spacer()
-                TextField("",
-                          text: $inputGiven)
-                    .multilineTextAlignment(.trailing)
-            }
+            AnswerAndResultView(answerCorrect: answerCorrect, answerChecked: answerChecked, inputGiven: $inputGiven)
             
             ZStack {
                 Button(action: {
