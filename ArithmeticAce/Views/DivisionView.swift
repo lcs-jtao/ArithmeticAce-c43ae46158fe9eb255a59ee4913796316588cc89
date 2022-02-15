@@ -35,33 +35,7 @@ struct DivisionView: View {
             AnswerAndResultView(answerCorrect: answerCorrect, answerChecked: answerChecked, inputGiven: $inputGiven)
             
             ZStack {
-                Button(action: {
-                    
-                    // Answer has been checked!
-                    answerChecked = true
-                    
-                    // Convert the input given to an integer, if possible
-                    guard let quotientGiven = Int(inputGiven) else {
-                        // Sadness, not a number
-                        answerCorrect = false
-                        return
-                    }
-
-                    // Check the answer!
-                    if quotientGiven == correctQuotient {
-                        // Celebrate! 👍🏼
-                        answerCorrect = true
-                    } else {
-                        // Sadness, they gave a number, but it's not correct 😭
-                        answerCorrect = false
-                    }
-                }, label: {
-                    Text("Check Answer")
-                        .font(.largeTitle)
-                })
-                    .padding()
-                    .buttonStyle(.bordered)
-                    .opacity(answerChecked ? 0.0 : 1.0)
+                CheckAnswerView(answerChecked: $answerChecked, answerCorrect: $answerCorrect, correctAnswer: correctQuotient, inputGiven: inputGiven)
                 
                 Button(action: {
                     
