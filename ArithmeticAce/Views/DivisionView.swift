@@ -59,7 +59,13 @@ struct DivisionView: View {
                     .opacity(answerChecked ? 1.0 : 0.0)
             }
             
-            ReactionAnimationView(happyReactionName: "9891-happy-donut", sadReactionName: "84655-swinging-sad-emoji", answerCorrect: answerCorrect, answerChecked: answerChecked)
+            //ReactionAnimationView(happyReactionName: "9891-happy-donut", sadReactionName: "84655-swinging-sad-emoji", answerCorrect: answerCorrect, answerChecked: answerChecked)
+            
+            List {
+                Text("Equation 1")
+                Text("Equation 2")
+            }
+            .font(.system(size: 25))
 
             Spacer()
         }
