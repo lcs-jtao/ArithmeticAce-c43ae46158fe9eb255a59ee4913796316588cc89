@@ -25,6 +25,10 @@ struct DivisionView: View {
         return correctQuotient * divisor
     }
     
+    var completeEquation: String {
+        return "\(dividend) ÷ \(divisor) = \(correctQuotient)"
+    }
+    
     var body: some View {
                 
         VStack(spacing: 0) {
@@ -62,8 +66,7 @@ struct DivisionView: View {
             //ReactionAnimationView(happyReactionName: "9891-happy-donut", sadReactionName: "84655-swinging-sad-emoji", answerCorrect: answerCorrect, answerChecked: answerChecked)
             
             List {
-                Text("Equation 1")
-                Text("Equation 2")
+                EquationListView(equation: completeEquation, inputAnswer: inputGiven, status: answerCorrect)
             }
             .font(.system(size: 25))
 
