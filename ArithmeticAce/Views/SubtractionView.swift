@@ -84,6 +84,34 @@ struct SubtractionView: View {
         }
         
     }
+    
+    // MARK: Functions
+    func persistFavourites() {
+        
+        let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
+        
+        do {
+            let encoder = JSONEncoder()
+
+            encoder.outputFormatting = .prettyPrinted
+            
+            let data = try encoder.encode(equationList)
+            
+            try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
+            
+            print("Saved data to documents directory successfully.")
+            print("===")
+            print(String(data: data, encoding: .utf8)!)
+            
+        } catch {
+            
+            print(error.localizedDescription)
+            print("Unable to write list of solved equations to documents directory in app bundle on device.")
+            
+        }
+
+    }
+    
 }
 
 struct SubtractionView_Previews: PreviewProvider {

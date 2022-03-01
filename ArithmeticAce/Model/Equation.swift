@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Equation: Hashable {
+struct Equation: Hashable, Decodable, Encodable {
     let id = UUID()
     let fullEquation: String
     let givenAnswer: String

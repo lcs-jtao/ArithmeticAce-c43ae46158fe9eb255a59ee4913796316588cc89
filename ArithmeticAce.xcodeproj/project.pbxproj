@@ -14,6 +14,7 @@
 		6C0FA9BA27B8070500378D2C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0FA9B927B8070500378D2C /* LottieView.swift */; };
 		6C15BC7927CAF546000DC76A /* EquationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C15BC7827CAF546000DC76A /* EquationListView.swift */; };
 		6C15BC7E27CC1887000DC76A /* Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C15BC7D27CC1887000DC76A /* Equation.swift */; };
+		6C15BC8127CDA858000DC76A /* SharedFunctionsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C15BC8027CDA858000DC76A /* SharedFunctionsAndConstants.swift */; };
 		6C7BEA0227BBF04B00C95AFC /* AnswerAndResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7BEA0127BBF04B00C95AFC /* AnswerAndResultView.swift */; };
 		6C7BEA0427BBF37500C95AFC /* 9891-happy-donut.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C7BEA0327BBF37500C95AFC /* 9891-happy-donut.json */; };
 		6C7BEA0627BBF37E00C95AFC /* 84655-swinging-sad-emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C7BEA0527BBF37E00C95AFC /* 84655-swinging-sad-emoji.json */; };
@@ -33,6 +34,7 @@
 		6C0FA9B927B8070500378D2C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		6C15BC7827CAF546000DC76A /* EquationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationListView.swift; sourceTree = "<group>"; };
 		6C15BC7D27CC1887000DC76A /* Equation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equation.swift; sourceTree = "<group>"; };
+		6C15BC8027CDA858000DC76A /* SharedFunctionsAndConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunctionsAndConstants.swift; sourceTree = "<group>"; };
 		6C7BEA0127BBF04B00C95AFC /* AnswerAndResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerAndResultView.swift; sourceTree = "<group>"; };
 		6C7BEA0327BBF37500C95AFC /* 9891-happy-donut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "9891-happy-donut.json"; path = "../../../../Downloads/9891-happy-donut.json"; sourceTree = "<group>"; };
 		6C7BEA0527BBF37E00C95AFC /* 84655-swinging-sad-emoji.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "84655-swinging-sad-emoji.json"; path = "../../../../Downloads/84655-swinging-sad-emoji.json"; sourceTree = "<group>"; };
@@ -64,6 +66,14 @@
 				6C15BC7D27CC1887000DC76A /* Equation.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		6C15BC7F27CDA83D000DC76A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6C15BC8027CDA858000DC76A /* SharedFunctionsAndConstants.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		6C9A2DA627BBEBA100C16B3B /* Views */ = {
@@ -109,8 +119,9 @@
 		81FDA62A27B160FF002471AE /* ArithmeticAce */ = {
 			isa = PBXGroup;
 			children = (
-				6C15BC7A27CC14E6000DC76A /* Model */,
 				81FDA62B27B160FF002471AE /* ArithmeticAceApp.swift */,
+				6C15BC7A27CC14E6000DC76A /* Model */,
+				6C15BC7F27CDA83D000DC76A /* Shared */,
 				6C9A2DA627BBEBA100C16B3B /* Views */,
 				6C7BEA0327BBF37500C95AFC /* 9891-happy-donut.json */,
 				6C7BEA0527BBF37E00C95AFC /* 84655-swinging-sad-emoji.json */,
@@ -217,6 +228,7 @@
 				6C0FA9B127B6FE1700378D2C /* SubtractionView.swift in Sources */,
 				6C7BEA0827BBF41700C95AFC /* ReactionAnimationView.swift in Sources */,
 				6C0FA9BA27B8070500378D2C /* LottieView.swift in Sources */,
+				6C15BC8127CDA858000DC76A /* SharedFunctionsAndConstants.swift in Sources */,
 				6C15BC7E27CC1887000DC76A /* Equation.swift in Sources */,
 				6C7BEA0A27BBF59B00C95AFC /* CheckAnswerView.swift in Sources */,
 			);
