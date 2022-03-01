@@ -19,6 +19,8 @@ struct DivisionView: View {
     // Was the answer given actually correct?
     @State var answerCorrect = false
     
+    @State var equationList: [Equation] = []
+    
     // MARK: Computed properties
     // What is the dividend?
     var dividend: Int {
@@ -39,7 +41,7 @@ struct DivisionView: View {
             AnswerAndResultView(answerCorrect: answerCorrect, answerChecked: answerChecked, inputGiven: $inputGiven)
             
             ZStack {
-                CheckAnswerView(answerChecked: $answerChecked, answerCorrect: $answerCorrect, correctAnswer: correctQuotient, inputGiven: inputGiven)
+                CheckAnswerView(answerChecked: $answerChecked, answerCorrect: $answerCorrect, correctAnswer: correctQuotient, inputGiven: inputGiven, completeEquation: completeEquation, equationList: $equationList)
                 
                 Button(action: {
                     
@@ -65,8 +67,8 @@ struct DivisionView: View {
             
             //ReactionAnimationView(happyReactionName: "9891-happy-donut", sadReactionName: "84655-swinging-sad-emoji", answerCorrect: answerCorrect, answerChecked: answerChecked)
             
-            List {
-                EquationListView(equation: completeEquation, inputAnswer: inputGiven, status: answerCorrect)
+            List(equationList, id: \.self) { oneEquation in
+                EquationListView(equation: oneEquation.fullEquation, inputAnswer: oneEquation.givenAnswer, status: oneEquation.wasCorrect)
             }
             .font(.system(size: 25))
 

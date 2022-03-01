@@ -14,6 +14,8 @@ struct CheckAnswerView: View {
     @Binding var answerCorrect: Bool
     let correctAnswer: Int
     let inputGiven: String
+    let completeEquation: String
+    @Binding var equationList: Array<Equation>
 
     // MARK: Computed properties
     var body: some View {
@@ -37,6 +39,9 @@ struct CheckAnswerView: View {
                 // Sadness, they gave a number, but it's not correct 😭
                 answerCorrect = false
             }
+            
+            equationList.append(Equation(fullEquation: completeEquation, givenAnswer: inputGiven, wasCorrect: answerCorrect))
+
         }, label: {
             Text("Check Answer")
                 .font(.largeTitle)
