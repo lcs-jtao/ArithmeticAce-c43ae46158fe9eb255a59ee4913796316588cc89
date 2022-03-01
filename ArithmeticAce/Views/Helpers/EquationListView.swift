@@ -16,15 +16,19 @@ struct EquationListView: View {
         HStack {
             Text(equation)
             
-            if status == true {
-                Spacer()
+            Text("(\(inputAnswer))")
+                .opacity(status == false ? 1.0 : 0.0)
+            
+            Spacer()
+            
+            ZStack {
                 Image(systemName: "checkmark.circle")
                     .foregroundColor(.green)
-            } else if status == false {
-                Text("(\(inputAnswer))")
-                Spacer()
-                Image(systemName: "xmark.square")
+                    .opacity(status == true ? 1.0 : 0.0)
+                
+                Image(systemName: "xmark.circle")
                     .foregroundColor(.red)
+                    .opacity(status == false ? 1.0 : 0.0)
             }
         }
     }
