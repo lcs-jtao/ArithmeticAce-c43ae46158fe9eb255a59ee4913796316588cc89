@@ -12,7 +12,7 @@ func getDocumentsDirectory() -> URL {
     return paths[0]
 }
 
-let savedAdditionalEquationsLabel = "savedAdditionalEquations"
+let savedAdditionEquationsLabel = "savedAdditionEquations"
 let savedSubtractionEquationsLabel = "savedSubtractionEquations"
 let savedMultiplicationEquationsLabel = "savedMultiplicationEquations"
 let savedDivisionEquationsLabel = "savedDivisionEquations"
