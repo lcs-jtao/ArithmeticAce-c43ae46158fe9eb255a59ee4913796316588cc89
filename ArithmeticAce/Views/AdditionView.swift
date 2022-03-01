@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AdditionView: View {
     // MARK: Stored properties
+    @Environment(\.scenePhase) var scenePhase
     @State var augend = Int.random(in: 1...144)
     @State var addend = 0
     @State var inputGiven = ""
@@ -73,6 +74,26 @@ struct AdditionView: View {
             .font(.system(size: 25))
             
             Spacer()
+        }
+        
+        .onChange(of: scenePhase) { newPhase in
+            
+            if newPhase == .inactive {
+                
+                print("Inactive")
+                
+            } else if newPhase == .active {
+                
+                print("Active")
+                
+            } else if newPhase == .background {
+                
+                print("Background")
+                
+                persistFavourites()
+                
+            }
+            
         }
         .padding(.horizontal)
         .font(.system(size: 72))

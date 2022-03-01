@@ -10,6 +10,7 @@ import SwiftUI
 struct MultiplicationView: View {
     
     // MARK: Stored properties
+    @Environment(\.scenePhase) var scenePhase
     @State var multiplicand = Int.random(in: 1...12)
     @State var multiplier = Int.random(in: 1...12)
     @State var inputGiven = ""
@@ -73,6 +74,26 @@ struct MultiplicationView: View {
             .font(.system(size: 25))
             
             Spacer()
+        }
+        
+        .onChange(of: scenePhase) { newPhase in
+            
+            if newPhase == .inactive {
+                
+                print("Inactive")
+                
+            } else if newPhase == .active {
+                
+                print("Active")
+                
+            } else if newPhase == .background {
+                
+                print("Background")
+                
+                persistFavourites()
+                
+            }
+            
         }
         .padding(.horizontal)
         .font(.system(size: 72))

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SubtractionView: View {
     // MARK: Stored properties
+    @Environment(\.scenePhase) var scenePhase
     @State var minuend = Int.random(in: 1...144)
     @State var subtrahend = 0
     
@@ -75,6 +76,26 @@ struct SubtractionView: View {
             .font(.system(size: 25))
 
             Spacer()
+        }
+        
+        .onChange(of: scenePhase) { newPhase in
+            
+            if newPhase == .inactive {
+                
+                print("Inactive")
+                
+            } else if newPhase == .active {
+                
+                print("Active")
+                
+            } else if newPhase == .background {
+                
+                print("Background")
+                
+                persistFavourites()
+                
+            }
+            
         }
         .padding(.horizontal)
         .font(.system(size: 72))
