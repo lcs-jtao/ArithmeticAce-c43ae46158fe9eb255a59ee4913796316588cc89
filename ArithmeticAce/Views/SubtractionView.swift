@@ -102,6 +102,7 @@ struct SubtractionView: View {
         // This code block (closure) runs once when the view is first loaded
         .task {
             subtrahend = Int.random(in: 1...minuend)
+            loadFavourites()
         }
         
     }
@@ -129,6 +130,29 @@ struct SubtractionView: View {
             print(error.localizedDescription)
             print("Unable to write list of solved equations to documents directory in app bundle on device.")
             
+        }
+
+    }
+    
+    func loadFavourites() {
+        
+        let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
+        print(filename)
+                
+        do {
+            
+            let data = try Data(contentsOf: filename)
+            
+            print("Got data from file, contents are:")
+            print(String(data: data, encoding: .utf8)!)
+
+            equationList = try JSONDecoder().decode([Equation].self, from: data)
+            
+        } catch {
+            
+            print(error.localizedDescription)
+            print("Could not load data from file, initializing with tasks provided to initializer.")
+
         }
 
     }
