@@ -110,7 +110,7 @@ struct SubtractionView: View {
     // MARK: Functions
     func persistEquations() {
         
-        let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
+        let filename = getDocumentsDirectory().appendingPathComponent(savedSubtractionEquationsLabel)
         
         do {
             let encoder = JSONEncoder()
@@ -136,7 +136,7 @@ struct SubtractionView: View {
     
     func loadEquations() {
         
-        let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
+        let filename = getDocumentsDirectory().appendingPathComponent(savedSubtractionEquationsLabel)
         print(filename)
                 
         do {

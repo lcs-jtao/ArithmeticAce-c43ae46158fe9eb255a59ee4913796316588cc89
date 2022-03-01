@@ -105,7 +105,7 @@ struct DivisionView: View {
     // MARK: Functions
     func persistEquations() {
         
-        let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
+        let filename = getDocumentsDirectory().appendingPathComponent(savedDivisionEquationsLabel)
         
         do {
             let encoder = JSONEncoder()
@@ -131,7 +131,7 @@ struct DivisionView: View {
     
     func loadEquations() {
         
-        let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
+        let filename = getDocumentsDirectory().appendingPathComponent(savedDivisionEquationsLabel)
         print(filename)
                 
         do {

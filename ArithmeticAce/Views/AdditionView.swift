@@ -107,7 +107,7 @@ struct AdditionView: View {
     // MARK: Functions
     func persistEquations() {
         
-        let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
+        let filename = getDocumentsDirectory().appendingPathComponent(savedAdditionEquationsLabel)
         
         do {
             let encoder = JSONEncoder()
@@ -133,7 +133,7 @@ struct AdditionView: View {
     
     func loadEquations() {
         
-        let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
+        let filename = getDocumentsDirectory().appendingPathComponent(savedAdditionEquationsLabel)
         print(filename)
                 
         do {
