@@ -90,7 +90,7 @@ struct AdditionView: View {
                 
                 print("Background")
                 
-                persistFavourites()
+                persistEquations()
                 
             }
             
@@ -100,12 +100,12 @@ struct AdditionView: View {
         
         .task {
             addend = Int.random(in: 1...144-augend)
-            loadFavourites()
+            loadEquations()
         }
     }
     
     // MARK: Functions
-    func persistFavourites() {
+    func persistEquations() {
         
         let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
         
@@ -131,7 +131,7 @@ struct AdditionView: View {
 
     }
     
-    func loadFavourites() {
+    func loadEquations() {
         
         let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
         print(filename)

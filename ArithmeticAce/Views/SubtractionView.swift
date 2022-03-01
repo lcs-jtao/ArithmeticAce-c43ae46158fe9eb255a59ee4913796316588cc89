@@ -92,7 +92,7 @@ struct SubtractionView: View {
                 
                 print("Background")
                 
-                persistFavourites()
+                persistEquations()
                 
             }
             
@@ -102,13 +102,13 @@ struct SubtractionView: View {
         // This code block (closure) runs once when the view is first loaded
         .task {
             subtrahend = Int.random(in: 1...minuend)
-            loadFavourites()
+            loadEquations()
         }
         
     }
     
     // MARK: Functions
-    func persistFavourites() {
+    func persistEquations() {
         
         let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
         
@@ -134,7 +134,7 @@ struct SubtractionView: View {
 
     }
     
-    func loadFavourites() {
+    func loadEquations() {
         
         let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
         print(filename)

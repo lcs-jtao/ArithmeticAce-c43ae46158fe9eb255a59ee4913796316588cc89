@@ -90,20 +90,20 @@ struct MultiplicationView: View {
                 
                 print("Background")
                 
-                persistFavourites()
+                persistEquations()
                 
             }
             
         }
         .task {
-            loadFavourites()
+            loadEquations()
         }
         .padding(.horizontal)
         .font(.system(size: 72))
     }
     
     // MARK: Functions
-    func persistFavourites() {
+    func persistEquations() {
         
         let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
         
@@ -129,7 +129,7 @@ struct MultiplicationView: View {
 
     }
     
-    func loadFavourites() {
+    func loadEquations() {
         
         let filename = getDocumentsDirectory().appendingPathComponent(savedEquationsLabel)
         print(filename)
