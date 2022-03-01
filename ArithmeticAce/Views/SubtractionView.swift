@@ -21,10 +21,16 @@ struct SubtractionView: View {
     // Was the answer given actually correct?
     @State var answerCorrect = false
     
+    @State var equationList: [Equation] = []
+    
     // MARK: Computed properties
     // What is the correct difference?
     var correctDifference: Int {
         return minuend - subtrahend
+    }
+    
+    var completeEquation: String {
+        return "\(minuend) - \(subtrahend) = \(correctDifference)"
     }
     
     var body: some View {
@@ -37,7 +43,7 @@ struct SubtractionView: View {
             AnswerAndResultView(answerCorrect: answerCorrect, answerChecked: answerChecked, inputGiven: $inputGiven)
             
             ZStack {
-                CheckAnswerView(answerChecked: $answerChecked, answerCorrect: $answerCorrect, correctAnswer: correctDifference, inputGiven: inputGiven)
+                CheckAnswerView(answerChecked: $answerChecked, answerCorrect: $answerCorrect, correctAnswer: correctDifference, inputGiven: inputGiven, completeEquation: completeEquation, equationList: $equationList)
                 
                 Button(action: {
                     
@@ -61,7 +67,12 @@ struct SubtractionView: View {
                     .opacity(answerChecked ? 1.0 : 0.0)
             }
             
-            ReactionAnimationView(happyReactionName: "9891-happy-donut", sadReactionName: "84655-swinging-sad-emoji", answerCorrect: answerCorrect, answerChecked: answerChecked)
+            //ReactionAnimationView(happyReactionName: "9891-happy-donut", sadReactionName: "84655-swinging-sad-emoji", answerCorrect: answerCorrect, answerChecked: answerChecked)
+            
+            List(equationList, id: \.self) { oneEquation in
+                EquationListView(equation: oneEquation.fullEquation, inputAnswer: oneEquation.givenAnswer, status: oneEquation.wasCorrect)
+            }
+            .font(.system(size: 25))
 
             Spacer()
         }

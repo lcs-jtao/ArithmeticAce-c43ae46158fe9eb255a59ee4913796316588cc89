@@ -20,10 +20,16 @@ struct MultiplicationView: View {
     // Was the answer given actually correct?
     @State var answerCorrect = false
     
+    @State var equationList: [Equation] = []
+    
     // MARK: Computed properties
     // What is the correct product?
     var correctProduct: Int {
         return multiplicand * multiplier
+    }
+    
+    var completeEquation: String {
+        return "\(multiplicand) 𐄂 \(multiplier) = \(correctProduct)"
     }
     
     var body: some View {
@@ -32,11 +38,10 @@ struct MultiplicationView: View {
             QuestionPresentationView(operation: "✕", firstValue: multiplicand, secondValue: multiplier)
             
             Divider()
-            
             AnswerAndResultView(answerCorrect: answerCorrect, answerChecked: answerChecked, inputGiven: $inputGiven)
             
             ZStack {
-                CheckAnswerView(answerChecked: $answerChecked, answerCorrect: $answerCorrect, correctAnswer: correctProduct, inputGiven: inputGiven)
+                CheckAnswerView(answerChecked: $answerChecked, answerCorrect: $answerCorrect, correctAnswer: correctProduct, inputGiven: inputGiven, completeEquation: completeEquation, equationList: $equationList)
                 
                 Button(action: {
                     
@@ -60,8 +65,13 @@ struct MultiplicationView: View {
                     .opacity(answerChecked ? 1.0 : 0.0)
             }
             
-            ReactionAnimationView(happyReactionName: "9891-happy-donut", sadReactionName: "84655-swinging-sad-emoji", answerCorrect: answerCorrect, answerChecked: answerChecked)
+            //ReactionAnimationView(happyReactionName: "9891-happy-donut", sadReactionName: "84655-swinging-sad-emoji", answerCorrect: answerCorrect, answerChecked: answerChecked)
 
+            List(equationList, id: \.self) { oneEquation in
+                EquationListView(equation: oneEquation.fullEquation, inputAnswer: oneEquation.givenAnswer, status: oneEquation.wasCorrect)
+            }
+            .font(.system(size: 25))
+            
             Spacer()
         }
         .padding(.horizontal)
